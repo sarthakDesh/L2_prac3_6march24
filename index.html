@@ -1,0 +1,52 @@
+
+<html>
+<head>
+<title> Favorite Meal App </title>
+<style>
+*{font-size: 50px;}
+body{background-color: #ffffcc;}
+h1 , h2 {background-color: black; color: white; width: 50%; border-radius: 10px;}
+input[type= "radio"] {width:1.5%; height:0.5em;}
+</style>
+<script>
+function find(){
+event.preventDefault();
+let name = document.getElementById("name");
+let ni = document.getElementById("ni");
+let si = document.getElementById("si");
+let ff = document.getElementById("ff");
+let msg = document.getElementById("msg");
+if(name.value == ""){
+alert("You did not enter your name");
+msg.innerHTML = "";
+name.focus();
+return;
+}
+let choice = "";
+if(ni.checked)		choice = "North Indian";
+else if(si.checked)		choice = "South Indian";
+else 		choice = "Fast Food";
+
+let ans = "Name: " + name.value + " Choice: " + choice;
+msg.innerHTML = ans;
+
+}
+</script>
+</head>
+
+<body>
+<center>
+<h1> Favorite Meal App </h1>
+<form onsubmit = "find()">
+<input type="text" placeholder="Enter Name" id="name" />
+<br><br>
+<input type="radio" name="f" id="ni" /> North Indian
+<input type="radio" name="f" id="si" /> South Indian
+<input type="radio" name="f" id="ff" checked={true}/> Fast Food
+<br><br>
+<input type="submit" />
+</form>
+<h2 id="msg"/>
+</center>
+</body>
+</html>
